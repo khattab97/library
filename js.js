@@ -25,12 +25,13 @@ function getInfo() {
     if (title === ""|| author === "" || pages === "") {
         req.style.visibility = 'visible'
     } else {
-        myBooks.push(new Book(title, author, pages,read))
+        let book = new Book(title, author, pages,read);
+        myBooks.push(book)
         modal.style.display = "none";
         req.style.visibility = 'hidden'
         form.reset();
         console.log(myBooks)
-        display(myBooks)
+        display(book, myBooks.indexOf(book))
     }
 }
 
@@ -43,8 +44,7 @@ function Book (title, author, page, read) {
 }
 
 
-function display(books) {
-    books.forEach(book => {
+function display(book, i) {
         let div = document.createElement('div');
         div.classList.add('book');
         let p_title = document.createElement('p');
@@ -52,12 +52,41 @@ function display(books) {
         let p_author = document.createElement('p');
         p_author.textContent = book.author;
         let p_page = document.createElement('p');
-        p_page.textContent = book.page;
-
+        p_page.textContent = book.page + " pages";
+        let btn_read = document.createElement('button');
+        if (book.read){
+            btn_read.style.cssText='background-color:green; border:1px solid skyblue;';
+            btn_read.textContent = 'Read'
+        } else btn_read.textContent = "Not read"
+        btn_read.addEventListener('click', toggle)
+        let btn_remove = document.createElement('button');
+        btn_remove.style.backgroundColor = 'red';
+        btn_remove.textContent = 'Remove';
+        btn_remove.addEventListener('click', removeDiv)
         div.appendChild(p_title);
         div.appendChild(p_author);
         div.appendChild(p_page);
+        div.appendChild(btn_read);
+        div.appendChild(btn_remove);
+        div.setAttribute('data-key', i);
         books_grid.appendChild(div);
+}
 
-    });
+function removeDiv() {
+    let index = this.parentElement.getAttribute('data-key');
+    console.log(index);
+    myBooks.splice(+index, 1);
+    console.log(myBooks);
+    this.parentElement.remove();
+}
+
+function toggle(){
+    if (this.textContent === 'Read') {
+        this.textContent='Not read';
+        this.style.backgroundColor = 'black';
+    }else {
+        this.textContent = 'Read';
+        this.style.backgroundColor = 'green'
+        this.style.border = '1px solid skyblue'
+    }
 }
