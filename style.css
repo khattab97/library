@@ -181,16 +181,26 @@ input {
     flex-direction: column;
     border: 1px solid orange;
     border-radius: 10px;
-    height: 350px;
+    height: 400px;
     padding: 20px;
     text-align: center;
     font-size: 36px;
 }
 
 .book > p {
-    margin: 20px;
+    margin: 15px;
+    color: #fdfdfd;
 }
 
 .book > button{
-    margin: 20px;
+    margin: 10px;
+    height: 70px;
+    width: auto;
+    padding: 5px 20px;
+    font-size: 25px;
+    font-weight: normal;
+    background-color: #000000;
+    border: 2px solid skyblue;
+    color: white;
+    border-radius: 7px;
 }
