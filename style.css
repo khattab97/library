@@ -18,9 +18,9 @@ header {
     color: #fdfdfd;
 }
 
-main {
-    display: grid;
-    justify-items: center;
+.btn-wrapper {
+    display: flex;
+    justify-content: center;
 }
 
 #open-modal {
@@ -61,6 +61,7 @@ main {
 form {
     display: flex;
     flex-flow: column wrap;
+    color: #fdfdfd;
 }
 
 form > p {
@@ -76,19 +77,19 @@ form > button {
     padding: 5px 20px;
     font-size: 25px;
     font-weight: normal;
-    background-color: transparent;
-    border: 2px solid #f5afa3;
-    color: #95554b;
+    background-color: black;
+    border: 2px solid red;
+    color: white;
     border-radius: 7px;
 
 }
 
 form > button:hover {
-    background-color: #f5afa3;
+    background-color: red;
 }
 
 form > button:active {
-    background-color: #e19386;
+    background-color: #850202;
 }
 
 
@@ -130,10 +131,38 @@ input {
 
 /* Modal Content */
 .modal-content {
-    background-color: #fefefe;
+    background-color: rgb(0 0 0);
     margin: auto;
     padding: 25px 40px;
     border: 1px solid #888;
     width: 350px;
     border-radius: 10px;
+}
+
+.books-grid {
+    grid-row: 2;
+    justify-self: start;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 20px;
+    padding: 50px;
+}
+
+.book {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid orange;
+    border-radius: 10px;
+    height: 350px;
+    padding: 20px;
+    text-align: center;
+    font-size: 36px;
+}
+
+.book > p {
+    margin: 20px;
+}
+
+.book > button{
+    margin: 20px;
 }
