@@ -64,13 +64,22 @@ form {
     color: #fdfdfd;
 }
 
-form > p {
+form > .title {
     text-align: center;
     font-size: 50px;
     font-weight: bold;
     margin-top: 20px;
     margin-bottom: 50px;
 }
+
+.requirements {
+    font-size: 15px;
+    color: red;
+    margin-bottom: 10px;
+    visibility: hidden;
+
+}
+
 
 form > button {
     height: 60px;
@@ -101,6 +110,25 @@ label {
     font-weight: bold;
     margin-bottom: 5px;
 }
+
+.read {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+
+.read > label {
+    display: inline;
+    width: auto;
+    font-size: 30px;
+}
+.read > input {
+    width: 100px;
+    height: 25px;
+    margin: 0;
+}
+
 
 input {
     height: 35px;
@@ -143,7 +171,7 @@ input {
     grid-row: 2;
     justify-self: start;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
     gap: 20px;
     padding: 50px;
 }
